@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            color: white;
+            background-color: rgb(44, 44, 44);
+            font: normal 15pt Arial;
+        }
+        div#area{
+            margin-top: 10%;
+            margin-left: 25%;
+            background-color: rgb(93, 93, 93);
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    
+    <div id="area" onclick="clicar() " onmouseenter="entrar()" onmouseleave="Saiu()">Clique em mim
+    </div>
+    <script>
+            var a = document.getElementById('area');
+            a.addEventListener('click',clicar);
+            a.addEventListener('mouseenter',entrar);
+            a.addEventListener('mouseout',Saiu);//pode fazer os eventos aqui ou no próprio html
+        function clicar(){
+            a.style.background = 'Azul'
+            a.innerText = 'GAY';
+        }
+        function entrar(){
+            a.style.background = 'green'
+            a.innerText = 'Entrou';
+        }
+        function Saiu(){
+            a.style.background = 'red'
+            a.innerHTML = 'Saiu';
+        }
+    </script>
+</body>
+</html>

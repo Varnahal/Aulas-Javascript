@@ -9,12 +9,24 @@
         body{
             color: white;
             background-color: rgb(44, 44, 44);
+            font: normal 15pt Arial;
         }
     </style>
 </head>
 <body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>Dom</strong> em JavaScript</p>
+    <div id="abc"><br>Clique em mim</div>
     <script>
-        
+        var p1 = window.document.getElementsByTagName('p')[0]
+        p1.style.color = 'blue';
+        window.document.write(p1.innerHTML);
+        var j = document.querySelector('div#abc');
+        j.style.background = 'blue';
+        document.write(j.innerHTML);
+        var f = document.getElementById('abc');
+        f.style.border = '2px solid white'
     </script>
 </body>
 </html>
