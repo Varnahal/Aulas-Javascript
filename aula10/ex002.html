@@ -37,7 +37,11 @@
             var n1 = Number(tn1.value);//valores strings convertidos para numero
             var n2 = Number(tn2.value);
             var s = n1 + n2;
+            if(isNaN(s)){
+                res.innerText = 'Resultado: é pra digitar um numero animal de teta';//código caso a pessoa mude no dev tools para text
+            }else{
             res.innerText = 'Resultado: '+s;
+            }
         }
     </script>
 </body>
