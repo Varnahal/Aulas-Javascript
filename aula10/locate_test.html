@@ -1,0 +1,55 @@
+<!DOCTYPE html>   
+<html>      
+<body>   
+<h2>Check Your Location</h2>   
+<button onclick="getlocation();">Check Position</button>   
+<div id="loc" style="width: 400px; height: 200px; margin-left: 100px;"></div>   
+<div id="locat"></div>
+ 
+        <script src="https://maps.google.com/maps/api/js?sensor=false"> </script>   
+ 
+        <script type="text/javascript">   
+        function getlocation(){   
+            if(navigator.geolocation){   
+                navigator.geolocation.getCurrentPosition(showPos, showErr);   
+            }  
+            else{  
+                alert("Sorry! Geolocation API is not supported.")  
+            }  
+        }   
+ 
+        function showPos(position){   
+            latt = position.coords.latitude;   
+            long = position.coords.longitude;   
+            var lattlong = new google.maps.LatLng(latt, long);   
+            var myOptions = {   
+                center: lattlong,   
+                zoom: 15,   
+                mapTypeControl: true,   
+                navigationControlOptions: {style:google.maps.NavigationControlStyle.SMALL}   
+            }   
+            var maps = new google.maps.Map(document.getElementById("loc"), myOptions);   
+            var markers =   
+            new google.maps.Marker({position:lattlong, map:maps, title:"I am here!"});   
+            var loc = "The current location is (" + "Latitude: " + position.coords.latitude + ", " + "Longitude: " +    position.coords.longitude + ", " + " Accuracy: " + position.coords.accuracy + ")";  
+            document.getElementById("locat").innerHTML = loc;
+        }   
+        function showErr(error) {  
+              switch(error.code){  
+              case error.PERMISSION_DENIED:  
+             alert("User denied the request for Geolocation API.");  
+              break;  
+             case error.POSITION_UNAVAILABLE:  
+             alert("USer location information is unavailable.");  
+            break;  
+            case error.TIMEOUT:  
+            alert("The request to get user location timed out.");  
+            break;  
+           case error.UNKNOWN_ERROR:  
+            alert("An unknown error occurred.");  
+            break;  
+           }  
+        }        
+        </script>   
+    </body>   
+</html>
