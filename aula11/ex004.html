@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>aula11-ex003</title>
+    <style>
+        *{
+            padding: 0px;
+            margin: 0px;
+        }
+        body{
+            color: white;
+            background-color: rgb(44, 44, 44);
+            font: normal 15pt Arial;
+            align-content: center;
+            text-align: center;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <label for="pais"><h1>alienigena?!</h1></label>
+    <input type="text" name="pais" id="pais" placeholder="Digite seu país" onkeypress="limite()">
+    <button onclick="limite()">Clique aqui</button>
+    <div id="ans" >Resposta</div>
+    <script>
+        function limite(e){
+            if(event.key === 'Enter'){
+                var pais = document.getElementById('pais').value;
+            var ans = document.querySelector('div#ans');
+            if (pais == "BR") {
+                ans.innerHTML = 'vc é Brasileiro';
+            }else{
+                ans.innerHTML = "vc é alienigena " + pais;
+            }
+            }
+            
+        }
+        
+        
+        
+    </script>
+</body>
+</html>
