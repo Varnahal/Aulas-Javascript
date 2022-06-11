@@ -1,6 +1,6 @@
 function aula(){
     var cores = [];
-    cores['penis'] = 'azul';
+    cores['auuuuugaaaa'] = 'azul';
     cores.push('amarelo'); 
     cores.push('azul');
     cores.push('ciano');
