@@ -3,17 +3,17 @@ function executar(){
     let butao = document.getElementById('pulo');
     div.style.transition = '0.8s';
         butao.onclick = function() {arroz()};
-        div.style.top ='308px'
+        div.style.top ='420px'
         setTimeout(() => {
-          div.style.top = '508px';
+          div.style.top = '570px';
           
-        }, 700);
+        }, 400);
         
         setTimeout(() => {
             butao.onclick = function(){executar()};
-        }, 1700);
+        }, 400);
     
-}//472top -47left
+}//556top 156left
 function morreu(){
     let div = document.getElementById('memes');
     let div1 = document.getElementById('memes1');
@@ -27,7 +27,7 @@ function morreu(){
         var coordst = Number(div.offsetTop);
         console.log(coordsl +' and '+ coordst)
         
-        if(coordsl <= 276 && coordst > 472 && coordsl >-47){
+        if(coordsl <= 173  && coordst > 556 && coordsl >26){
             
         div.style.display = 'none';
         div1.style.display = 'flex';
