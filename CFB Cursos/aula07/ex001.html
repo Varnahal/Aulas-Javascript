@@ -12,17 +12,63 @@
             flex-direction: column;
             background-color: rgb(105, 105, 105);
         }
-        div{
+        div#memes{
+            position: absolute;
+            left: 80px;
+            top: 508px;
             color: white;
-            margin-top: 200px;
-            align-self: center;
             font-size: 80px;
         }
+        div#memes1{
+            position: absolute;
+            left: 80px;
+            top: 508px;
+            color: white;
+            font-size: 80px;
+        }
+        .caixa{
+            display: flex;
+            flex-direction: column;
+            width: 600px;
+            height: 600px;
+            background-color: rgb(52, 52, 52);
+            overflow: hidden;
+            position: relative;
+        }
+        div#cano{
+            position: absolute;
+            color: white;
+            font-size: 60px;
+            animation: cano 2s infinite linear;
+            bottom: 0px;
+        }
+        @keyframes cano {
+            from{
+                right:-100px;
+            }
+            to{
+                right:100%;
+            }
+            
+        }
+        #cont{
+            font-size: 30px;
+            color: white;
+            margin: 10px;
+        }
+        
     </style>
 </head>
-<body>
+<body onload="morreu()" id="body">
     <button id='pulo' onclick="executar()"><h1>Pular</h1></button>
+    <button id='restart' onclick="restart()"><h1>Restart</h1></button>
     <script src="ex001.js"></script>
-    <div id="memes">mario</div>
+    <div class="caixa">
+        <div id="cont">Pontuação: 0</div>
+        <div id="memes">mario</div>
+        <div id="memes1">morreu</div>
+        <div id="cano">cano</div> 
+    </div>
+    
 </body>
 </html>
