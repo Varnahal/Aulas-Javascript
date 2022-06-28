@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body id="body">
+    
+    <form action="" id="form1">
+        <label for="nome">NOME</label>
+        <input type="text" id="nome">
+        <label for="senha">SENHA</label>
+        <input type="password" id="senha">
+        <input type="submit" value="enviar">
+    </form>
+    <script>
+        var fm = document.forms[0];
+        var el = fm.elements;
+        for (let i = 0; i < el.length; i++) {
+            el[i].value = 'pepino'
+            el[i].style.backgroundColor = '#808080'
+        }
+    </script>
+    
+</body>
+</html>
