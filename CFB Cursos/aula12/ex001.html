@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+        
+    </style>
+</head>
+<body id="body">
+    <div> 
+
+    </div>
+    
+    <script>
+        
+       
+       setInterval(() => {
+            var div = document.querySelector('div')
+            var dt = new Date()
+            var ntd = new Date();
+            ntd.setDate(dt.getDate())
+            var dia = ntd.getDate()
+            var mes = ntd.getMonth()+1
+            var ano = ntd.getFullYear()
+            var horas = ntd.getHours()
+            var minutos = ntd.getMinutes()
+            var sec = ntd.getSeconds()
+            var meses = ['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro']
+           div.innerHTML = `${horas}:${minutos}:${sec} ${dia}/${meses[mes]}/${ano}`
+        }, 1000);  
+    </script>
+    
+</body>
+</html>
