@@ -6,43 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ex001</title>
     <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
         body{
             display: flex;
             align-items: center;
             flex-direction: column;
             background-color: rgb(105, 105, 105);
         }
+        div{
+            background-color: brown;
+            width: 100px;
+            height: 100px;
+            border: 1px black solid;
+        }
+
         
     </style>
 </head>
-<body id="body" onload="ola()">
+<body id="body" >
     <div> 
 
     </div>
     
     <script>
+        var div = document.querySelector('div');
         function ola(){
-            var data = new Date();
-            var hora = data.getHours()
-            if(hora > 5 && hora < 12){
-                alert('bom dia')
-            }else if(hora <= 18){
-                alert('boa tarde');
-            }else if( hora > 18){
-                alert('boa noite')
-            }
+           div.innerHTML = 'OLÁ'
         }
-        /*-----------Eventos---------------*/
+        function saiu(){
+            div.innerHTML = ''
+        }
+        div.addEventListener('mouseover',ola)
+        div.addEventListener('mouseout',saiu)
 
-        /*
-        onclick="function()": dispara quando o objeto indicado for clicado;
-
-        onmouseover="function()": dispara quando mouse passar em cima de algo;
-
-        onmouseout="function()": dispara quando o mouse sai de algo;
-
-        onload="function()": dispara quando a pagina carrega;
-        */
     </script>
     
 </body>
