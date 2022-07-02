@@ -45,8 +45,6 @@
         }
         #pedra{
             position: absolute;
-            top: 100px;
-            left: 130px;
             border-radius: 30px;
             width: 50px;
             height: 50px;
@@ -55,15 +53,20 @@
             color: white;
             background-color: rgb(26, 26, 26);
         }
+        #cont{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
 
         
     </style>
 </head>
 <body id="body" >
     <div id="conteiner" onmousemove="move()"> 
+        <div id="cont">0</div>
         <div id='nave'><img src="nave.jpg" alt=""></div>
         <div id='mouse'></div>
-        <div id='pedra' onclick="this.style.display = 'none'">Pedra</div>
     </div>
 
     
@@ -71,6 +74,10 @@
         var nave =document.getElementById('nave');
         var mouse =document.getElementById('mouse');
         var caixa =document.getElementById('conteiner');
+        var pedra =document.getElementById('pedra');
+        var contador = document.getElementById('cont')
+        var cont = 0;
+
         setInterval(() => {
             var offtmouse = 300 - Number(mouse.offsetTop) - 15
         var offlmouse = Number(mouse.offsetLeft) - 300 + 15
@@ -81,20 +88,49 @@
         
         var A = offlmouse / hip
         //((offlmouse * offlmouse)+(Math.pow(hip,2))-(offtmouse * offtmouse))/(2*offlmouse*(hip));
-        console.log(offlmouse)
-        console.log(offtmouse)
+        //console.log(offlmouse)
+        //console.log(offtmouse)
         var res =Math.acos(A);
         //console.log(A);
-        console.log(A);
+        //console.log(A);
         nave.style.transform = `rotateZ(-${res}rad)`;
+            
         }, 10);
+
+        setInterval(() => {
+            let px = Math.random()*550;
+            let py = Math.random()*200;
+
+            if(px < 30){
+                 px = 30;
+            }
+
+            if(py < 30){
+                py = 30;
+            }
+
+            var pedra = document.createElement('div');
+            pedra.id = 'pedra'
+            pedra.style.left = px+'px';
+            pedra.style.top = py+'px';
+            pedra.innerHTML = 'Pedra';
+            pedra.addEventListener('click',function(){
+                cont ++
+                this.outerHTML = '';
+                console.log(cont)
+                contador.innerHTML = cont
+            })
+            caixa.appendChild(pedra)
+
+        }, 1000);
         
+    
 
         function move(e){
             var pgx = event.pageX - 65;
             var pgy = event.pageY - 115;
-            console.log(mouse.style.left)
-            console.log(mouse.style.top)
+            //console.log(mouse.style.left)
+            //console.log(mouse.style.top)
             mouse.style.left = pgx+'px';
             mouse.style.top = pgy+'px';
         }
