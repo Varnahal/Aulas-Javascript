@@ -26,6 +26,8 @@
             justify-content: center;
             margin-left:50px;
             overflow: hidden;
+            background-color: black;
+            background-image: url('NewCanvas1.jpg');
         }
         div#nave{
             position: absolute;
@@ -51,12 +53,32 @@
             line-height: 50px;
             text-align: center;
             color: white;
-            background-color: rgb(26, 26, 26);
+            background-color: rgb(116, 116, 116);
+            cursor: pointer;
         }
         #cont{
             position: absolute;
             top: 0px;
             left: 0px;
+            font-size: 35px;
+            color: white;
+        }
+        #best{
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            font-size: 35px;
+            color: white;
+        }
+        #comecar{
+            position: absolute;
+            justify-self: center;
+            align-self: center;
+            background-color: rgb(84, 89, 214);
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid black;
+            cursor: pointer;
         }
 
         
@@ -65,77 +87,87 @@
 <body id="body" >
     <div id="conteiner" onmousemove="move()"> 
         <div id="cont">0</div>
+        <div id="best">Best:0</div>
         <div id='nave'><img src="nave.jpg" alt=""></div>
         <div id='mouse'></div>
+        <div id="comecar" onclick="jogar()">COMEÇAR</div>
     </div>
 
     
     <script>
-        var nave =document.getElementById('nave');
-        var mouse =document.getElementById('mouse');
-        var caixa =document.getElementById('conteiner');
-        var pedra =document.getElementById('pedra');
-        var contador = document.getElementById('cont')
-        var cont = 0;
+        //função para começar o jogo
+        function jogar(){
+            var nave =document.getElementById('nave');
+            var mouse =document.getElementById('mouse');
+            var caixa =document.getElementById('conteiner');
+            var pedra =document.getElementById('pedra');
+            var contador = document.getElementById('cont');
+            var best = document.getElementById('best');
+            var comecar = document.getElementById('comecar');
+            var cont = 0;
+            comecar.style.display = 'none'
 
+            //contador para sumonar as pedras aleatóriamente
+            var summonpedra = setInterval(interval,300)
+            function interval(){
+                let px = Math.random()*550;
+                let py = Math.random()*200;
+                if(px < 30){
+                    px = 30;
+                }
+
+                if(py < 30){
+                    py = 30;
+                }
+
+                var pedra = document.createElement('div');
+                pedra.id = 'pedra'
+                pedra.style.left = px+'px';
+                pedra.style.top = py+'px';
+                pedra.innerHTML = 'Pedra';
+                //caso seja clicado na bola ela é deletada 
+                pedra.addEventListener('click',function(){
+                    cont ++
+                    this.outerHTML = '';
+                    contador.innerHTML = cont
+                })
+                caixa.appendChild(pedra)
+
+                //conta quantas pedras tem, caso tenha mais de 10 o jogo acaba
+                let pedras = document.querySelectorAll('#pedra');
+                if(pedras.length >= 11){
+                    clearInterval(summonpedra);
+                    if(cont > Number(best.innerHTML.    replace('Best:',''))){
+                        console.log(cont)
+                        best.innerHTML = 'Best:'+cont;
+                    };
+                    for (let i = 0; i < pedras.length; i++) {
+                        pedras[i].outerHTML='';
+                        comecar.style.display = 'flex';
+                        cont = 0;
+                        contador.innerHTML = cont
+                    }
+                }
+            }
+        }
+        //acha a posição em que o mouse esta e traça um triangulo do mouse para o "chão" para a nave e descobre o angulo que a nave tem que virar em radianos
         setInterval(() => {
             var offtmouse = 300 - Number(mouse.offsetTop) - 15
-        var offlmouse = Number(mouse.offsetLeft) - 300 + 15
-        var offlnave = 300;
-
-        var hip = Math.hypot(offtmouse,offlmouse);
-        
-        
-        var A = offlmouse / hip
-        //((offlmouse * offlmouse)+(Math.pow(hip,2))-(offtmouse * offtmouse))/(2*offlmouse*(hip));
-        //console.log(offlmouse)
-        //console.log(offtmouse)
-        var res =Math.acos(A);
-        //console.log(A);
-        //console.log(A);
-        nave.style.transform = `rotateZ(-${res}rad)`;
+            var offlmouse = Number(mouse.offsetLeft) - 300 + 15
+            var offlnave = 300;
+            var hip = Math.hypot(offtmouse,offlmouse);
+            var A = offlmouse / hip
+            var res =Math.acos(A);
+            nave.style.transform = `rotateZ(-${res}rad)`;
             
         }, 10);
-
-        setInterval(() => {
-            let px = Math.random()*550;
-            let py = Math.random()*200;
-
-            if(px < 30){
-                 px = 30;
-            }
-
-            if(py < 30){
-                py = 30;
-            }
-
-            var pedra = document.createElement('div');
-            pedra.id = 'pedra'
-            pedra.style.left = px+'px';
-            pedra.style.top = py+'px';
-            pedra.innerHTML = 'Pedra';
-            pedra.addEventListener('click',function(){
-                cont ++
-                this.outerHTML = '';
-                console.log(cont)
-                contador.innerHTML = cont
-            })
-            caixa.appendChild(pedra)
-
-        }, 1000);
-        
-    
-
+        // encontra a posição do mouse
         function move(e){
             var pgx = event.pageX - 65;
             var pgy = event.pageY - 115;
-            //console.log(mouse.style.left)
-            //console.log(mouse.style.top)
             mouse.style.left = pgx+'px';
             mouse.style.top = pgy+'px';
         }
-
-
     </script>
     
 </body>
