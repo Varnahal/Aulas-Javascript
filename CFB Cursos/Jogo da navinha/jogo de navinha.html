@@ -71,15 +71,29 @@
             color: white;
         }
         #comecar{
-            position: absolute;
-            justify-self: center;
-            align-self: center;
             background-color: rgb(84, 89, 214);
             padding: 10px;
             border-radius: 10px;
             border: 1px solid black;
             cursor: pointer;
+            justify-items: center;
+            align-items: center;
         }
+        #perdeu{
+            background-color: rgb(214, 84, 84);
+            padding: 10px;
+            font-size: 30px;
+            border-radius: 10px;
+            border: 1px solid black;
+            display: none;
+        }
+        #divc{
+            position: absolute;
+            display: flex;
+            flex-direction: row;
+            top: 150px;
+        }
+
 
         
     </style>
@@ -90,7 +104,9 @@
         <div id="best">Best:0</div>
         <div id='nave'><img src="nave.jpg" alt=""></div>
         <div id='mouse'></div>
-        <div id="comecar" onclick="jogar()">COMEÇAR</div>
+        <div id="divc"><div id="comecar" onclick="jogar()">COMEÇAR</div>
+        <div id="perdeu">Porque vc perdeu seu merda</div></div>
+        
     </div>
 
     
@@ -101,11 +117,13 @@
             var mouse =document.getElementById('mouse');
             var caixa =document.getElementById('conteiner');
             var pedra =document.getElementById('pedra');
+            var perdeu =document.getElementById('perdeu');
             var contador = document.getElementById('cont');
             var best = document.getElementById('best');
             var comecar = document.getElementById('comecar');
             var cont = 0;
             comecar.style.display = 'none'
+            perdeu.style.display = 'none'
 
             //contador para sumonar as pedras aleatóriamente
             var summonpedra = setInterval(interval,300)
@@ -137,6 +155,7 @@
                 let pedras = document.querySelectorAll('#pedra');
                 if(pedras.length >= 11){
                     clearInterval(summonpedra);
+                    perdeu.style.display = 'flex'
                     if(cont > Number(best.innerHTML.    replace('Best:',''))){
                         console.log(cont)
                         best.innerHTML = 'Best:'+cont;
