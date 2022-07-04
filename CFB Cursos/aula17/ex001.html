@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+        #dv1{
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            background-color: white;
+        }
+        
+
+        
+    </style>
+</head>
+<body id="body" >
+    <div id="dv1"></div>
+    <br>
+    <button id="bt1">iniciar</button>
+    <button id="bt2">parar</button>
+    <script>
+        var stp = document.getElementById('bt2');
+        var ini = document.getElementById('bt1');
+        var tm;
+        stp.addEventListener('click',parar);
+        ini.addEventListener('click',iniciar);
+        function mudacor(){
+            var obj = document.getElementById('dv1');
+            var r = Math.floor(Math.random()*255)
+            var g = Math.floor(Math.random()*255)
+            var b = Math.floor(Math.random()*255)
+            obj.style.backgroundColor = `rgb(${r},${g},${b})`;
+            
+        }
+        function parar(){
+            clearInterval(tm)
+        }
+        function iniciar(){
+             tm = setInterval(mudacor,1000);
+        }
+
+        
+        
+    </script>
+    
+</body>
+</html>
