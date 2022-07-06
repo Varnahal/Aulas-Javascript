@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+        #jogador{
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: blue;
+            width: 50px;
+            height: 50px;
+        }
+        
+    </style>
+</head>
+<body id="body">
+    
+    <div id="jogador"></div>
+    <button id="ini">Iniciar</button>
+    <button id="para">Parar</button>
+
+    <script>
+        
+        var ini = document.getElementById('ini');
+        var parar = document.getElementById('para');
+        var jog = document.getElementById('jogador');
+        var vel;
+        var dx;
+        var dy;
+        var px;
+        var py;
+        var anima;
+        var tst = 0
+        window.addEventListener('load',inicia);
+        jog.addEventListener('click',para);
+        parar.addEventListener('click',parab)
+        ini.addEventListener('click',inib)
+
+        function parab(){
+            cancelAnimationFrame(anima);
+            tst = 0;
+        }
+        function inib(){
+            if(tst == 0){
+                anima = requestAnimationFrame(game);
+            tst = 1;
+            }
+            
+        }
+        function para(){
+            if(tst == 0){
+                anima = requestAnimationFrame(game);
+                tst = 1
+            }else{
+                cancelAnimationFrame(anima);
+                tst = 0
+            }
+            console.log('aqui')
+        }
+
+        function inicia(){
+            vel = 0.5;
+            dx = 1;
+            dy = 0;
+            px = 0;
+            py = 0;
+        }
+        function game(){
+
+            //direita
+            px+=dx*vel;
+            jog.style.left = px+'px';
+            if(px>500)dx-=1;
+            if(px<30)dx+=1;
+            
+            anima = requestAnimationFrame(game);
+            
+            //console.log(anima)
+
+        }
+    </script>
+    
+</body>
+</html>
