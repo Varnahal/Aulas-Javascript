@@ -16,13 +16,46 @@
             flex-direction: column;
             background-color: rgb(105, 105, 105);
         }
-        
+        #quad{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid black;
+        }
     </style>
 </head>
 <body id="body">
 
+    <div id="quad"></div>
+
     <script>
-        
+        var div = document.getElementById('quad');
+        /*-------Recursividade-------------*/
+        function contador(min,max){
+            //div.innerHTML += min+'<br>'
+            if(min<max){
+                contador(++min,max)
+            }
+        }
+        function fatorial(n){
+            if(n ==1){
+                return 1;
+            }
+            return n*fatorial(n-1);
+        }
+        div.innerHTML +=fatorial(5);
+        contador(10,11);
+        var anima;
+        var ang = 0
+        function girar(){
+            div.style.transform = `rotate(${ang}deg)`;
+            ang++;
+            if(ang>360){
+                ang=0
+            }
+            anima = requestAnimationFrame(girar)
+        }
+        girar();
     </script>
     
 </body>
