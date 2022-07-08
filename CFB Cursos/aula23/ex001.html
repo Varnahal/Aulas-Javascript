@@ -23,12 +23,41 @@
             border: solid 1px black;
             background-size: cover;
             background-position: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .btslider{
+            background-color: rgba(0, 0, 0, 0.4);
+            height: 30%;
+            color: white;
+            cursor: pointer;
+            outline: none;
+            margin: 10px;
+            border: none;
+        }
+        #borda{
+            width: 100%;
+            height: 5px;
+            margin-top: 60%;
+            border: 1px solid whitesmoke;
+        }
+        #barra{
+            width: 50%;
+            height: 100%;
+            background-color: rgb(255, 255, 255);
         }
     </style>
 </head>
 <body id="body">
 
-    <div id="dvslider"></div>
+    <div id="dvslider">
+        <button class="btslider" onclick="troca(-1)"><</button>
+        <div id="borda">
+            <div id="barra"></div>
+        </div>
+        <button class="btslider" onclick="troca(1)">></button>
+    </div>
 
     <script>
         var imgs=[]
@@ -36,6 +65,8 @@
         var imgatual;
         var maximg;
         var tmp;
+        var tempo;
+        var barra = document.getElementById('barra');
         window.addEventListener('load',inicia)
         function preCarregamento(){
             
@@ -51,16 +82,34 @@
         function inicia(){
             preCarregamento();
             imgatual = 0;
-            maximg = imgs.length;
+            maximg = imgs.length - 1;
             carregarImg(imgatual);
-            tmp = setInterval(troca,1000);
+            tmp = 0;
+            anima();
         }
-        function troca(){
-            imgatual++;
+        function troca(dir){
+            tmp = 0;
+            imgatual += dir;
+            
             if(imgatual > maximg){
                 imgatual = 0;
+            }else if(imgatual<0){
+                imgatual = imgs.length;
             }
+            console.log(imgatual)
             carregarImg(imgatual);
+        }
+        function anima(){
+            tmp++;
+            let n = 100;
+            let n2 = n/100
+            if(tmp >=n){
+                tmp = 0;
+                troca(1);
+            }
+            tempo = tmp/n2;
+            barra.style.width = tempo+'%'
+            window.requestAnimationFrame(anima);
         }
         
 
