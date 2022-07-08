@@ -16,79 +16,53 @@
             flex-direction: column;
             background-color: rgb(105, 105, 105);
         }
-        table{
-            border: 1px solid black;
-            border-spacing:0px ;
-            color: white;
-        }
-        td{
-            border: 1px solid black;
-            border-spacing:0px ;
-        }
-        tr{
-            border-spacing: 0px;
+        #dvslider{
+            margin-top: 50px;
+            width:200px;
+            height: 100px;
+            border: solid 1px black;
+            background-size: cover;
+            background-position: center;
         }
     </style>
 </head>
 <body id="body">
 
-    <div id="quad">
-        <table id="table">
-            <tr>
-                <td>Alunos</td>
-                <td>Nota1</td>
-                <td>Nota2</td>
-                <td>Resultado</td>
-            </tr>
-            <tr>
-                <td>Al1</td>
-                <td>35</td>
-                <td>48</td>
-                <td id="n"></td>
-            </tr>
-            <tr>
-                <td>Al2</td>
-                <td>20</td>
-                <td>15</td>
-                <td id="n"></td>
-            </tr>
-            <tr>
-                <td>Al3</td>
-                <td>48</td>
-                <td>48</td>
-                <td id="n"></td>
-            </tr>
-            <tr>
-                <td>Al4</td>
-                <td>15</td>
-                <td>50</td>
-                <td id="n"></td>
-            </tr>
-        </table>
-    </div>
+    <div id="dvslider"></div>
 
     <script>
-        
-        var n = document.querySelectorAll('td#n');
-        var table = document.getElementById('table');
-        var nota;
-
-        for (let i = 1; i < table.rows.length; i++) {
-            nota = Number(table.rows[i].cells[1].innerHTML)+Number(table.rows[i].cells[2].innerHTML);
-            table.rows[i].cells[3].innerHTML = nota;
+        var imgs=[]
+        var slider = document.getElementById('dvslider');
+        var imgatual;
+        var maximg;
+        var tmp;
+        window.addEventListener('load',inicia)
+        function preCarregamento(){
             
-        }
-        
-        for (let i = 0; i < n.length; i++) {
-            if(Number(n[i].innerHTML) <40){
-                n[i].style.backgroundColor = 'red'
-            }else if(Number(n[i].innerHTML) <70){
-                n[i].style.backgroundColor = 'blue'
-            }else{
-                n[i].style.backgroundColor = 'green'
+            for (let i = 0; i < 5; i++) {
+                imgs[i] = new Image();
+                imgs[i].src='imgs/s'+i+'.jpg'
+                carregarImg(i);
             }
-            
         }
+        function carregarImg(img){
+            slider.style.backgroundImage ='url("'+imgs[img].src+'")'
+        }
+        function inicia(){
+            preCarregamento();
+            imgatual = 0;
+            maximg = imgs.length;
+            carregarImg(imgatual);
+            tmp = setInterval(troca,1000);
+        }
+        function troca(){
+            imgatual++;
+            if(imgatual > maximg){
+                imgatual = 0;
+            }
+            carregarImg(imgatual);
+        }
+        
 
     </script>
     
