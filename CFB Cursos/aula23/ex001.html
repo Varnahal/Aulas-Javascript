@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+        table{
+            border: 1px solid black;
+            border-spacing:0px ;
+            color: white;
+        }
+        td{
+            border: 1px solid black;
+            border-spacing:0px ;
+        }
+        tr{
+            border-spacing: 0px;
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div id="quad">
+        <table id="table">
+            <tr>
+                <td>Alunos</td>
+                <td>Nota1</td>
+                <td>Nota2</td>
+                <td>Resultado</td>
+            </tr>
+            <tr>
+                <td>Al1</td>
+                <td>35</td>
+                <td>48</td>
+                <td id="n"></td>
+            </tr>
+            <tr>
+                <td>Al2</td>
+                <td>20</td>
+                <td>15</td>
+                <td id="n"></td>
+            </tr>
+            <tr>
+                <td>Al3</td>
+                <td>48</td>
+                <td>48</td>
+                <td id="n"></td>
+            </tr>
+            <tr>
+                <td>Al4</td>
+                <td>15</td>
+                <td>50</td>
+                <td id="n"></td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        
+        var n = document.querySelectorAll('td#n');
+        var table = document.getElementById('table');
+        var nota;
+
+        for (let i = 1; i < table.rows.length; i++) {
+            nota = Number(table.rows[i].cells[1].innerHTML)+Number(table.rows[i].cells[2].innerHTML);
+            table.rows[i].cells[3].innerHTML = nota;
+            
+        }
+        
+        for (let i = 0; i < n.length; i++) {
+            if(Number(n[i].innerHTML) <40){
+                n[i].style.backgroundColor = 'red'
+            }else if(Number(n[i].innerHTML) <70){
+                n[i].style.backgroundColor = 'blue'
+            }else{
+                n[i].style.backgroundColor = 'green'
+            }
+            
+        }
+
+    </script>
+    
+</body>
+</html>
