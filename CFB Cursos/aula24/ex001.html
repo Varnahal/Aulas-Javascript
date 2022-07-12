@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #carro{
+        width: 200px;
+        height: 379px;
+        }
+        .c1{
+            background-image: url(imgs/s1.jpg);
+            background-size: cover;
+        }
+        .c2{
+            background-size: cover;
+            background-image: url(imgs/s2.jpg);
+        }
+        .c3{
+            background-size: cover;
+            background-image: url(imgs/s3.jpg);
+        }
+    </style>
+</head>
+<body id="body">
+
+    
+    <button onclick="verificar()">verificar</button>
+    <button onclick="trocaCarro(1)">c1</button>
+    <button onclick="trocaCarro(2)">c2</button>
+    <button onclick="trocaCarro(3)">c3</button>
+    <button onclick="remover()">remover</button>
+    <div id="carro"></div>
+
+    <script>
+        var e = document.getElementById("carro");
+        function trocaCarro(c){
+           if(c == 1){
+                e.setAttribute('class','c1');
+           }else if(c == 2){
+            e.setAttribute('class','c2');
+           }else if(c ==3){
+            e.setAttribute('class','c3');
+           }
+        }
+        function remover(){
+            e.removeAttribute('class');
+        }
+        function verificar(){
+            if(e.hasAttribute('class')){
+                alert('temos a classe');
+            }else{
+                alert('não temos a classe');
+            }
+        }
+        
+        
+
+    </script>
+    
+</body>
+</html>
