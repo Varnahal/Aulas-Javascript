@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div id="div">
+        <p id="txt">pepino alado mexendo o avião pepino malvado</p>
+    </div>
+
+    <script>
+        
+        var texto = document.querySelector('p#txt').innerHTML;
+        var txt2 = 'aaa'
+        
+        var res = texto.substr(0,7);
+        document.write(res);
+        
+
+
+        /*
+        txt.indexOf(x):retorna a posição em que esta a primeira string informada;
+
+        txt.lastIndexOf(x):retorna a posição em que esta a ultima string informada;
+
+        txt.localeCompare(x):compara se a string(txt) é igual a string (x), retornando 0 para iguais ou -1 para diferente;
+
+        txt.slice(n,n):retorna a string que estiver entre (n) e (n);
+
+        txt.split(x):divide a string onde o caracterer especificado for informado e transforma em um array;
+
+        txt.substr(n,n): similar ao split, mas no primeiro parametro é passada a posição inicial do corte e no segundo paramentro é passada o tamanho do corte
+        
+        txt.toLowerCase(): transforma a string inteira para minusculo;
+
+        txt.toUpperCase(): transforma a string inteira para Maiusculo;
+
+
+        */
+    </script>
+    
+</body>
+</html>

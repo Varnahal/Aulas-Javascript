@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div id="div">
+        <p id="txt"> pepino alado mexendo o </p>
+    </div>
+
+    <script>
+        
+        var texto = document.querySelector('p#txt').innerHTML;
+        var txt2 = 'avião Pepino malvado';
+        var res = texto.concat(txt2)
+        document.write(res)
+
+        /*
+        txt.search(x): não retorna array somente a primeira ocorrencia
+        Retorna em que posição na string está alguma palavra
+        só pode ultilizar o parametro especial (i)
+
+        txt.replace(x,y): retorna a string trocando a palavra informada no primeiro parametro pela palavra informada no segundo parametro;
+        pode se usar todos os parametros especiais (i.m.g) que são usados com o match;
+        
+        txt.charat(n): retorna qual caractere está na posção informada no parametro
+
+        txt.charCodeat(n):retorna o codigo do caractere;
+
+        String.fromCharCode(n):converte o codigo de um caractere para o caractere;
+
+        txt.concat(x):junta uma string(txt) com a outra(x), mas pode-se usar somente um (+);
+
+
+        */
+
+    </script>
+    
+</body>
+</html>

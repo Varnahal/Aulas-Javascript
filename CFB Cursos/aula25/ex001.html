@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div id="div">
+        <p id="txt"> pepino alado mexendo o avião Pepino malvado</p>
+    </div>
+
+    <script>
+        
+        var texto = document.querySelector('p#txt').innerHTML;
+        var stringpesquisa = 'oa';
+        var res = texto.match(/[^oa]/gi);
+
+        document.write('quantidade da string '+res[0]+': '+res+':'+res.length);
+
+
+        /*
+        i:busca sem case-sensitive;
+        g:pega todas as ocorrencias da string informada, armazenando cada uma em uma posição do array;
+        m:pesquisa normal mas não armazena em formato de string não de array;
+        Obs(Podem ser combinados);
+        /x/p:serve para pesquisar algo em uma string ultilizando dos parametros(p) acima ;
+        /[x]/:usa para pesquisar mais de uma letra;
+        /[^x]/:usado para pesquisar todas as letras menos as que estão nas chaves;
+        /[x-z]/:retorna somente valores entre (x)e(z) incluindo o (x)e(z);
+        /[^x-z]/:retorna somente valores que não estão entre (x)e(z) incluindo o (x)e(z);
+        /[x|y|z]/:pode se usar dessa forma tambem que pesquisa da mesma forma que o primeiro;
+
+        E varios outros metacaracteres;
+
+        
+        */
+
+    </script>
+    
+</body>
+</html>

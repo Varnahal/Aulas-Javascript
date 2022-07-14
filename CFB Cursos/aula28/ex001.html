@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div id="div">
+        <p id="txt">pepino alado mexendo o avião pepino malvado</p>
+    </div>
+
+    <script>
+        
+        var texto = document.querySelector('p#txt').innerHTML;
+        var num = 5
+        var res = num.toString(2);
+        document.write(res);
+
+        /*
+        ----------tostring---------------
+        n.toString(x):converte (n) para string, pode-se colocar numeros especiais em (x) para conversão de valores;
+
+        valores aceitos:
+        ():converte para string
+        (2):converte para binario
+        (8):converte para octadecimal
+        (16):converte para exadecimal
+        ----------fimtostring----------------
+        txt.trim():elimina espaços no começo e no final da string
+
+        \n:pode ser usada para imprimir caraacteres que seriam interpretados com codigo
+
+
+        */
+        
+    </script>
+    
+</body>
+</html>
