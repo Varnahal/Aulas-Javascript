@@ -16,15 +16,94 @@
             flex-direction: column;
             background-color: rgb(105, 105, 105);
         }
+        #palavra{
+            color: transparent;
+            display:flex;
+        }
+        #div1{
+            display: flex;
+        }
+        #letras{
+            color: black;
+            transform: translateX(15px);
+        }
+        hr{
+            width: 20px;
+        }
     </style>
 </head>
 <body id="body">
 
+    <div>
+        <div id="chance">0/5 chances</div>
+        <div id="div1"></div>
+        <div id="palavra1"></div>
+        <input type="text" maxlength="1" id="letra" >
+        <button id="enviar">Enviar</button>
+        <div id="palavra"></div>
+
+    </div>
     
 
     <script>
         
+        var chance = document.getElementById('chance');
+        var chancecont = 0
+        var palavra = document.getElementById('palavra');
+        var n = Math.floor(Math.random()*6) 
+        var p =['pepino','penio','macaco','jose','corno','aecrim','tv'] ;
+        console.log(n)
+        palavra.innerHTML = p[n];
+        var palavra1 = document.getElementById('palavra1');
+        var palavras = palavra.innerHTML.match(/[abcdefghijklmnopqrstuv]/gi);
+        var letra = document.getElementById('letra');
+        var enviar = document.getElementById('enviar');
+        var div1 = document.getElementById('div1')
+
+        enviar.addEventListener('click',verificar);
+
+
+        for (let i = 0; i < palavras.length; i++) {
+            let div = document.createElement('div')
+            let hr = document.createElement('hr')
+            div.innerHTML = palavras[i]
+            div.id = 'letras'
+            div1.appendChild(div);
+            div1.appendChild(hr);
+            div.style.opacity = 0
+            
+        }
+        var j = document.querySelectorAll('div#letras') 
         
+
+        function verificar(){
+            
+            let srch = new RegExp(`${letra.value}`,'gi')
+            let tem = palavra.innerText.match(srch)
+            if(tem != null){
+                for (let i = 0; i < j.length; i++) {
+                    if(j[i].innerHTML == tem[0]){
+                       j[i].style.opacity = 1
+                    }
+                }
+                letra.value = '';
+                letra.focus()
+                  
+            }else{
+                chancecont ++;
+                chance.innerHTML = chancecont+'/5chances'
+                letra.value = '';
+                letra.focus()
+                if(chancecont == 5){
+                    enviar.removeEventListener('click',verificar)
+                    letra.value = 'Perdeu'
+                }
+            }
+            
+
+        }
+
+
         
     </script>
     
