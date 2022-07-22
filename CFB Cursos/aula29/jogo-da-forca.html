@@ -48,6 +48,7 @@
         <input type="text" maxlength="1" id="letra" >
         <button id="enviar">Enviar</button>
         <div id="palavra"></div>
+	<div id="letrasusadas"></div>
 
     </div>
     
@@ -56,14 +57,16 @@
         
         var chance = document.getElementById('chance');
         var chancecont = 0;
-        var n = Math.floor(Math.random()*6) 
-        var p =['pepino','penio','macaco','josé','corno','aecrim','tv'] ;
+        var n = Math.floor(Math.random()*11) 
+        var p =['pepino','penio','macaco','jose','corno','tv','penis','negro','maromba','roblox','minecraft','gay'] ;
         var palavra = p[n];
         var palavra1 = document.getElementById('palavra1');
-        var palavras = palavra.match(/[abcdefghijklmnopqrstuvçéáóãõ]/gi);
+        var palavras = palavra.match(/[abcdefghijklmnopqrstuvwxyz]/gi);
         var letra = document.getElementById('letra');
         var enviar = document.getElementById('enviar');
-        var div1 = document.getElementById('div1')
+        var div1 = document.getElementById('div1');
+        var letrasu = document.getElementById('letrasusadas')
+        var body = document.getElementById('body')
 
         enviar.addEventListener('click',verificar);
         var j = [];
@@ -82,13 +85,15 @@
         
 
         function verificar(){
-            
-            let srch = new RegExp(`${letra.value}`,'gi')
+             let srch = new RegExp(`${letra.value}`,'gi')
+           
             let tem = palavra.match(srch)
+	letrasu.innerHTML += letra.value
             if(tem != null){
                 for (let i = 0; i < j.length; i++) {
                     if(j[i] == tem[0]){
-                       letrinhas[i].innerHTML = tem[0].toUpperCase()
+                       letrinhas[i].innerHTML = tem[0].toUpperCase();
+		
                     }
                 }
                 letra.value = '';
@@ -102,6 +107,7 @@
                 if(chancecont >= 5){
                     enviar.removeEventListener('click',verificar)
                     letra.value = 'Perdeu'
+                    body.style.backgroundColor = 'red';
                 }
             }
             

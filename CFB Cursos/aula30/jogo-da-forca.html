@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+        .posjogo{
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+            color: white;
+        }
+        #dvjogo{
+            width: 160px;
+            height: 160px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        #p1{
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        #p2{
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        #p3{
+            border-bottom: 1px solid black;
+        }
+        #p4{
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        #p5{
+            border-right: 1px solid black;
+            border-bottom: 1px solid black;
+        }
+        #p6{
+            border-bottom: 1px solid black;
+        }
+        #p7{
+            border-right: 1px solid black;
+        }
+        #p8{
+            border-right: 1px solid black;
+        }
+        
+    </style>
+</head>
+<body id="body">
+    <div id="dvmenu">
+        <div id="dvQuemComeca"></div>
+        <button onclick="inicia()">Iniciar Jogo</button>
+    </div>
+    <div id="dvjogo">
+        <div id="p1" class="posjogo" onclick="jogar(1)"></div>
+        <div id="p2" class="posjogo" onclick="jogar(2)"></div>
+        <div id="p3" class="posjogo" onclick="jogar(3)"></div>
+        <div id="p4" class="posjogo" onclick="jogar(4)"></div>
+        <div id="p5" class="posjogo" onclick="jogar(5)"></div>
+        <div id="p6" class="posjogo" onclick="jogar(6)"></div>
+        <div id="p7" class="posjogo" onclick="jogar(7)"></div>
+        <div id="p8" class="posjogo" onclick="jogar(8)"></div>
+        <div id="p9" class="posjogo" onclick="jogar(9)"></div>
+    </div>
+    
+
+    <script>
+        var jogo = [];//processamento do jogo, onde é armazenada as posições em que estão os x/o
+        var tabuleiro = [];//elemento visual é onde vai ser mostrado as posições
+        var quemJoga = 0;//0 = jogador 1 cpu
+        var verificar;// armazena se alguem ganhou
+        var jogando=true;// verifica se o jogo esta jogando
+        var nivel= 1;
+        var jogadaCpu = 1;//qual a jogada da cpu
+        var quemComeca = 1;
+
+        function jogar(p){
+            if((jogando == true)&&(quemJoga == 0)){
+                switch (p) {
+                    case 1:
+                        if(jogo[0][0]==''){
+                            jogo[0][0]='X';
+                            quemJoga=1;
+                        }
+                        break;
+                    case 2:
+                        if(jogo[0][1]==''){
+                            jogo[0][1]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    case 3:
+                        if(jogo[0][2]==''){
+                            jogo[0][2]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    case 4:
+                        if(jogo[1][0]==''){
+                            jogo[1][0]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    case 5:
+                        if(jogo[1][1]==''){
+                            jogo[1][1]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    case 6:
+                        if(jogo[1][2]==''){
+                            jogo[1][2]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    case 7:
+                        if(jogo[2][0]==''){
+                            jogo[2][0]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    case 8:
+                        if(jogo[2][1]==''){
+                            jogo[2][1]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    case 9:
+                        if(jogo[2][2]==''){
+                            jogo[2][2]='X';
+                            quemJoga=1;
+                        }    
+                        break;
+                    default:
+                        break;
+                }
+                atualizatabuleiro()
+            }
+        }
+
+        function atualizatabuleiro(){
+            for(let l=0;l<3;l++){
+                for(let c=0;c<3;c++){
+                    if(jogo[l][c]=='X'){
+                        tabuleiro[l][c].innerHTML = 'X';
+                        tabuleiro[l][c].style.cursor = 'default';
+                    }else if(jogo[l][c]=='O'){
+                        tabuleiro[l][c].innerHTML = 'O';
+                        tabuleiro[l][c].style.cursor = 'default';
+                    }else{
+                        tabuleiro[l][c].innerHTML = '';
+                        tabuleiro[l][c].style.cursor = 'pointer';
+                    }
+                }
+            }
+        }
+
+        function inicia(){
+            jogando=true;
+            jogadaCpu=1;
+            jogo=[['','',''],//0,0|0,1|0,2
+                  ['','',''],//1,0|1,1|1,2
+                  ['','','']]//2,0|2,1|2,2
+            tabuleiro = [
+                [document.getElementById('p1'),document.getElementById('p2'),document.getElementById('p3')],
+                [document.getElementById('p4'),document.getElementById('p5'),document.getElementById('p6')],
+                [document.getElementById('p7'),document.getElementById('p8'),document.getElementById('p9')]
+            ]
+        }
+        window.addEventListener('load',inicia)
+
+    </script>
+    
+</body>
+</html>
