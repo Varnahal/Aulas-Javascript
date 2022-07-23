@@ -117,243 +117,147 @@
                     }else//linha1
                     if(jogo[2][0]==jogo[1][0]&&jogo[0][0]==''&&jogo[2][0]=='O'){
                         jogo[0][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][1]==jogo[1][1]&&jogo[0][1]==''&&jogo[2][1]=='O'){
                         jogo[0][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][2]==jogo[1][2]&&jogo[0][2]==''&&jogo[2][2]=='O'){
                         jogo[0][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//linha2
                     if(jogo[0][0]==jogo[2][0]&&jogo[1][0]==''&&jogo[0][0]=='O'){
                         jogo[1][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][1]==jogo[2][1]&&jogo[1][1]==''&&jogo[0][1]=='O'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][2]==jogo[2][2]&&jogo[1][2]==''&&jogo[0][2]=='O'){
                         jogo[1][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//linha3
                     if(jogo[0][0]==jogo[1][0]&&jogo[2][0]==''&&jogo[0][0]=='O'){
                         jogo[2][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][1]==jogo[1][1]&&jogo[2][1]==''&&jogo[0][1]=='O'){
                         jogo[2][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][2]==jogo[1][2]&&jogo[2][2]==''&&jogo[0][2]=='O'){
                         jogo[2][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//coluna3
                     if(jogo[0][0]==jogo[0][1]&&jogo[0][2]==''&&jogo[0][0]=='O'){
                         jogo[0][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][0]==jogo[1][1]&&jogo[1][2]==''&&jogo[1][0]=='O'){
                         jogo[1][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][0]==jogo[2][1]&&jogo[2][2]==''&&jogo[2][0]=='O'){
                         jogo[2][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//coluna2
                     if(jogo[0][0]==jogo[0][2]&&jogo[0][1]==''&&jogo[0][0]=='O'){
                         jogo[0][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][0]==jogo[1][2]&&jogo[1][1]==''&&jogo[1][0]=='O'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][0]==jogo[2][2]&&jogo[2][1]==''&&jogo[2][0]=='O'){
                         jogo[2][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//coluna1
                     if(jogo[0][1]==jogo[0][2]&&jogo[0][0]==''&&jogo[0][1]=='O'){
                         jogo[0][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][1]==jogo[1][2]&&jogo[1][0]==''&&jogo[1][1]=='O'){
                         jogo[1][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][1]==jogo[2][2]&&jogo[2][0]==''&&jogo[2][1]=='O'){
                         jogo[2][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//diagonal direita pra esquerda
                     if(jogo[2][0]==jogo[1][1]&&jogo[0][2]==''&&jogo[2][0]=='O'){
                         jogo[0][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][0]==jogo[0][2]&&jogo[1][1]==''&&jogo[2][0]=='O'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][1]==jogo[0][2]&&jogo[2][0]==''&&jogo[1][1]=='O'){
                         jogo[2][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//diagonal esquerda pra direita
                     if(jogo[1][1]==jogo[2][2]&&jogo[0][0]==''&&jogo[1][1]=='O'){
                         jogo[0][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[2][2]&&jogo[1][1]==''&&jogo[0][0]=='O'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[1][1]&&jogo[2][2]==''&&jogo[1][1]=='O'){
                         jogo[2][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else//defensiva
                     if(jogo[2][0]==jogo[1][0]&&jogo[0][0]==''&&jogo[2][0]=='X'){
                         jogo[0][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][1]==jogo[1][1]&&jogo[0][1]==''&&jogo[2][1]=='X'){
                         jogo[0][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][2]==jogo[1][2]&&jogo[0][2]==''&&jogo[2][2]=='X'){
                         jogo[0][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[2][0]&&jogo[1][0]==''&&jogo[0][0]=='X'){
                         jogo[1][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][1]==jogo[2][1]&&jogo[1][1]==''&&jogo[0][1]=='X'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][2]==jogo[2][2]&&jogo[1][2]==''&&jogo[0][2]=='X'){
                         jogo[1][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[1][0]&&jogo[2][0]==''&&jogo[0][0]=='X'){
                         jogo[2][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][1]==jogo[1][1]&&jogo[2][1]==''&&jogo[0][1]=='X'){
                         jogo[2][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][2]==jogo[1][2]&&jogo[2][2]==''&&jogo[0][2]=='X'){
                         jogo[2][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[0][1]&&jogo[0][2]==''&&jogo[0][0]=='X'){
                         jogo[0][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][0]==jogo[1][1]&&jogo[1][2]==''&&jogo[1][0]=='X'){
                         jogo[1][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][0]==jogo[2][1]&&jogo[2][2]==''&&jogo[2][0]=='X'){
                         jogo[2][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[0][2]&&jogo[0][1]==''&&jogo[0][0]=='X'){
                         jogo[0][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][0]==jogo[1][2]&&jogo[1][1]==''&&jogo[1][0]=='X'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][0]==jogo[2][2]&&jogo[2][1]==''&&jogo[2][0]=='X'){
                         jogo[2][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][1]==jogo[0][2]&&jogo[0][0]==''&&jogo[0][1]=='X'){
                         jogo[0][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][1]==jogo[1][2]&&jogo[1][0]==''&&jogo[1][1]=='X'){
                         jogo[1][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][1]==jogo[2][2]&&jogo[2][0]==''&&jogo[2][1]=='X'){
                         jogo[2][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][0]==jogo[1][1]&&jogo[0][2]==''&&jogo[2][0]=='X'){
                         jogo[0][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[2][0]==jogo[0][2]&&jogo[1][1]==''&&jogo[2][0]=='X'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][1]==jogo[0][2]&&jogo[2][0]==''&&jogo[1][1]=='X'){
                         jogo[2][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[1][1]==jogo[2][2]&&jogo[0][0]==''&&jogo[1][1]=='X'){
                         jogo[0][0]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[2][2]&&jogo[1][1]==''&&jogo[0][0]=='X'){
                         jogo[1][1]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else
                     if(jogo[0][0]==jogo[1][1]&&jogo[2][2]==''&&jogo[1][1]=='X'){
                         jogo[2][2]='O';
-                        atualizatabuleiro();
-                        quemJoga=0;
                     }else{
                         do {
                         l=Math.round(Math.random()*2);
