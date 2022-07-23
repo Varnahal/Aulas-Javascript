@@ -91,6 +91,55 @@
         var jogadaCpu = 1;//qual a jogada da cpu
         var quemComeca = 1;
 
+        function CpuJoga(){
+
+            if(jogando){
+                var l = 0;
+                var c = 0
+                if(nivel==1){
+                    do {
+                        l=Math.round(Math.random()*2);
+                        c=Math.round(Math.random()*2);
+                        console.log(l,c)
+                    } while (jogo[l][c]!='');
+                    jogo[l][c]='O'
+                }else if(nivel==2){
+                    //nivel 2
+                }
+                verificar=verificaVitoria();
+                if(verificar!=''){
+                    alert(verificar+' venceu')
+                    jogando=false
+                }
+                atualizatabuleiro();
+                quemJoga=0;
+            }
+        }
+
+        function verificaVitoria(){
+            var l,c;
+            //linhas
+            for (let l = 0; l < 3; l++) {
+                if((jogo[l][0]==jogo[l][1])&&(jogo[l][1]==jogo[l][2])){
+                    return jogo[l][0];
+                }
+            }
+            //colunas
+            for (let c = 0; c < 3; c++) {
+                if ((jogo[0][c]==jogo[1][c])&&(jogo[1][c]==jogo[2][c])){
+                    return jogo[0][c];
+                }
+            }
+            //diagonais
+            if((jogo[0][0]==jogo[1][1])&&(jogo[1][1])==jogo[2][2]){
+                return jogo[0][0];
+            }
+            if((jogo[2][0]==jogo[1][1])&&(jogo[1][1])==jogo[0][2]){
+                return jogo[2][0];
+            }
+            return '';
+        }
+
         function jogar(p){
             if((jogando == true)&&(quemJoga == 0)){
                 switch (p) {
@@ -151,7 +200,15 @@
                     default:
                         break;
                 }
-                atualizatabuleiro()
+                if(quemJoga==1){
+                    atualizatabuleiro()
+                    verificar=verificaVitoria();
+                    if(verificar!=''){
+                        alert(verificar+' venceu')
+                        jogando=false
+                    }
+                    CpuJoga();
+                } 
             }
         }
 
@@ -183,6 +240,7 @@
                 [document.getElementById('p4'),document.getElementById('p5'),document.getElementById('p6')],
                 [document.getElementById('p7'),document.getElementById('p8'),document.getElementById('p9')]
             ]
+            atualizatabuleiro()
         }
         window.addEventListener('load',inicia)
 
