@@ -64,7 +64,7 @@
             <input type="text" id="txtpontos" value="0" size="10">
         </div>
         <div class="itempainel">
-            <button id="btiniciar">Iniciar</button>
+            <button id="btiniciar" onclick="iniciajogo()">Iniciar</button>
         </div>
     </div>
 
@@ -117,11 +117,38 @@
                 
             }
         }
+        function controlacpu(){
+            if(jogo){
+                if(posbolax>(campow/2)&&bolax>0){
+                    //movimentar cpu
+                    if(((posbolay+(bolah/2))>((poscpuy+(barrah/2)))+velcpu)){
+                        //mover para baixo
+                        if((poscpuy+barrah)<=campoh){
+                            poscpuy+=velcpu
+                        }
+                    }else if(posbolay+(bolah/2)<(poscpuy+(barrah/2))-velcpu){
+                        //mover para cima
+                        if(poscpuy>=0){
+                            poscpuy-=velcpu
+                        }
+                    }
+                }else{
+                    //posicionar no centro
+                    if(poscpuy+(barrah/2)<campoh/2){
+                        poscpuy+=velcpu;
+                    }else if(poscpuy+(barrah/2)>campoh/2){
+                        poscpuy-=velcpu;
+                    }
+                }
+                vcpu.style.top=poscpuy+'px'
+            }
+        }
 
         function controlabola(){
             //movimentação bola
             posbolax+=velbola*bolax;
             posbolay+=velbola*bolay;
+            console.log(velbola)
 
             //colisão com jogador
             if(
@@ -143,7 +170,34 @@
                 console.log('colidiuc')
                 
             }
-            console.log(poscpux)
+            //limites superior e inferior
+            if(posbolay>=480||posbolay<=0){
+                bolay*=-1;
+            }
+            //saiu da tela pela deireita e pela esquerda
+            if(posbolax>=(campow-bolaw)){
+                velbola=0;
+                posbolax=posbolainix;
+                posbolay=posbolainiy;
+                posjogadory=posjoginiy;
+                poscpuy=poscpuiniy;
+                pontos++;
+                vpaineltxtpontos.value=pontos
+                jogo=false
+                vjogador.style.top=posjogadory+'px';
+                vcpu.style.top=poscpuy+'px'
+            }else if(posbolax<=0){
+                velbola=0;
+                posbolax=posbolainix;
+                posbolay=posbolainiy;
+                posjogadory=posjoginiy;
+                poscpuy=poscpuiniy;
+                pontos--;
+                vpaineltxtpontos.value=pontos
+                jogo=false
+                vjogador.style.top=posjogadory+'px';
+                vcpu.style.top=poscpuy+'px'
+            }
             vbola.style.top = posbolay+'px'
             vbola.style.left = posbolax+'px'
         }
@@ -172,6 +226,7 @@
             if(jogo){
                 controlajog()
                 controlabola()
+                controlacpu()
             }
             frames=requestAnimationFrame(game);
         }
@@ -180,37 +235,42 @@
             if(!jogo){
                 cancelAnimationFrame(frames);
                 jogo = true
+                velbola=8;
+                velcpu=8;
+                veljogador=8;
                 dirjy=0;
                 bolay=0;
+                bolax=0;
+                posbolax=posbolainix;
+                posbolay=posbolainiy;
                 if((Math.random*10)<5){
                     bolax=-1;
                 }else{
                     bolax=1
                 }
-                posbolax=posbolainix;
-                posbolay=posbolainiy;
+                console.log(bolax)
+                
                 posjogadory=posjoginiy;
                 poscpuy=poscpuiniy;
                 poscpux=930;
                 posjogadorx=10;
                 game();
+            }else{
+                console.log('deu errado')
             }
             
 
         }
 
         function inicializa(){
-            velbola=8;
-            velcpu=8;
-            veljogador=8;
+            
             vbtiniciar = document.getElementById('btiniciar');
-            vbtiniciar.addEventListener('click',iniciajogo)
             vjogador = document.getElementById('dvjogador');
             vcpu=document.getElementById('dvcpu');
             vbola=document.getElementById('dvbola');
             vpaineltxtpontos=document.getElementById('txtpontos');
-            document.addEventListener('keydown',teclaup);
-            document.addEventListener('keyup',tecladw);
+            document.addEventListener('keydown',tecladw);
+            document.addEventListener('keyup',teclaup);
         }
 
         window.addEventListener('load',inicializa)
