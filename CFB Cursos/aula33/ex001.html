@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgb(105, 105, 105);
+        }
+    </style>
+</head>
+<body id="body">
+
+    <div >
+    <button onclick="info()">Tamanho</button>
+    <div id="div"></div>
+    </div>
+
+    <script>
+        
+        var l,a,px,py;
+
+        var painel = document.getElementById('div')
+
+        
+
+        function info(){
+            l=window.innerWidth;//retorna largura interna da janela(sem contar o layout) e outterwidth retorna largura externa da janelaa (contando o layout)
+            a=window.innerHeight;//retorna altura interna da janela(sem contar o layout) e outterheight retorna altura externa da janela (contando o layout)
+            px=window.screenX//retorna em relação a tela a posição x da janela
+            py=window.screenY//retorna em relação a tela a posição y da janela
+            painel.innerHTML = `largura:${l} altura:${a} <br> X:${px} <br>Y:${py}`;
+        }
+
+        
+
+
+    </script>
+    
+</body>
+</html>
