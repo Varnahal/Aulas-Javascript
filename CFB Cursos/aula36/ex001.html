@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(105, 105, 105);
+        }
+    </style>
+</head>
+<body id="body">
+    
+    
+    <h1>home 001</h1>
+    <p id="info"></p>
+    <a href="ex001.html">Home</a>
+    <a href="p2.html">Página2</a>
+    <a href="p3.html">Página3</a>
+    <button id="btnback">Voltar</button>
+    <button id="btnback2">Voltar2</button>
+    <button id="btnfwd">avançar</button>
+    <script>
+        var btnb = document.getElementById('btnback')
+        var btnb2 = document.getElementById('btnback2')
+        var btnf = document.getElementById('btnfwd')
+
+        btnb.addEventListener('click',histb)
+        btnb2.addEventListener('click',hg)
+        btnf.addEventListener('click',histf)
+
+        var painel = document.getElementById('info');
+        painel.innerHTML = history.length;
+
+        function histb(){
+            window.history.back();
+        }
+        function histf(){
+            window.history.forward();
+        }
+        function hg(){
+            window.history.go(-2)
+        }
+
+    </script>
+    
+</body>
+</html>

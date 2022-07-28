@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(105, 105, 105);
+        }
+        #painel{
+            width: 400px;
+            height: 500px;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body id="body">
+    
+    
+    <div id="painel"></div>
+
+    <script>
+        var painel;
+         function inicia(){
+            painel = document.getElementById('painel');
+            painel.innerHTML+='Resolução total da tela: L: '+screen.width+'px H: '+screen.height+'px<hr>';
+            painel.innerHTML+='resolução disponivel da tela: L: '+screen.availWidth+'px H: '+screen.availHeight+'px<hr>';
+            painel.innerHTML+='profundidade de cores para exibição de imagens '+screen.colorDepth+'bits';
+            painel.innerHTML+='resolução cor da tela por pixel '+screen.pixelDepth+'bits/pixel';
+            
+         }
+         window.addEventListener('load',inicia)
+    </script>
+    
+</body>
+</html>

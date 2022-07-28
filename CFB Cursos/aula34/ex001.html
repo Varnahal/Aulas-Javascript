@@ -13,25 +13,38 @@
         body{
             background-color: rgb(105, 105, 105);
         }
+        #painel{
+            width: 400px;
+            height: 500px;
+            border: 1px solid black;
+            border-radius: 20px;
+            padding: 10px;
+        }
     </style>
 </head>
 <body id="body">
-    <iframe src="" ></iframe>
-    <iframe src="" ></iframe>
-    <iframe src="" ></iframe>
+    
     
     <div id="painel"></div>
 
     <script>
-        
-        var qtde=window.length;//retorna quantidade de iframes
-        var painel = document.getElementById('painel')
-        painel.innerHTML = qtde
-        for (let i = 0; i < qtde; i++) {
-            window.frames[i].location='ex001.2.html'; 
-        }
-        
-
+         var painel;
+         function verifica(){
+            painel = document.getElementById('painel');
+            painel.innerHTML = 'Nome do Browser: '+navigator.appName+'<br>Versão do br: '+navigator.appVersion+'<br>Cookies: '+navigator.cookieEnabled;
+            painel.innerHTML += '<br>localização:'+navigator.geolocation.getCurrentPosition(sus)+'<br>';
+            
+            painel.innerHTML+='Lingua: '+navigator.language+'<br>';
+            painel.innerHTML+='on-line: '+navigator.onLine+'<br>';
+            painel.innerHTML+='s.o: '+navigator.platform+'<br>';
+            painel.innerHTML+='engine: '+navigator.product+'<br>';
+            painel.innerHTML+='agent: '+navigator.userAgent+'<br>';
+         }
+         function sus(p){
+            var c=p.coords;
+            painel.innerHTML+='Lat: '+c.latitude+'Lon: '+c.longitude
+         }
+         window.addEventListener('load',verifica)
     </script>
     
 </body>
