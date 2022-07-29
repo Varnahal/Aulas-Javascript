@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Página2</h1>
+    <a href="ex001.html">voltar</a>
+    <script>
+
+        var aux = location.hash;
+        var dados = aux.split('#')
+        var v1 = dados[1]
+        var v2 = dados[2]
+        document.write(v1);
+        var h = "<br>"+location.hostname
+        document.write(h);
+       /* var l = location.href = 'http://www.youtube.com'
+        document.write(l);*/
+        var j = "<br>"+location.origin//retorna o protocolo(http) o host e a porta
+        document.write(j);
+        var p = "<br>"+location.pathname
+        document.write(p);
+        var o = "<br>"+location.port
+        document.write(o);
+        var q = "<br>"+location.protocol
+        document.write(q);
+
+        var aux1 = location.search;
+        var dados1 = aux1.split('?');
+        var v11 = dados1[1];
+        document.write(v11)
+
+    </script> 
+</body>
+</html>
