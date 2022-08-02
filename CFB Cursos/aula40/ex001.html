@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(109, 109, 109);
+        }
+
+    </style>
+</head>
+<body id="body">
+    <div id="div">
+        <input type="text" id="fnovo"><button id="btnadd">Adicionar</button><button id="btncontar">Contar</button><br><br>
+        <ul id="lista">
+
+        </ul>
+    </div>
+    
+    <script>
+        
+        /*var div = document.getElementById('div');
+        var p = document.createElement('p');
+        //p.textContent = 'Varnahal'
+        var t = document.createTextNode('Varnahal')
+        p.append(t)
+        div.append(p);
+        */
+        /*var inp = document.getElementById('fnum');
+        var btn = document.getElementById('btndesc');
+        var ps = document.querySelectorAll('p');
+
+        btn.addEventListener('click',destacar);
+
+        function destacar(){
+            let n = Number(inp.value)-1;
+            for (let i = 0; i < ps.length; i++) {
+                ps[i].removeAttribute('style')
+                var att = document.createAttribute('id');
+                att.value = 'penis';
+                ps[i].setAttributeNode(att)
+                
+            }
+            let at = document.createAttribute('style');
+            at.value = 'color:#f00;font-weight:bolder'
+            inp.value = '';
+            inp.focus()
+            ps[n].setAttributeNode(at)
+            console.log(ps)  
+            
+        }
+        */
+       var lista = document.getElementById('lista');
+        document.getElementById('btnadd').addEventListener('click',function(){
+            var texto = document.getElementById('fnovo');
+            var li = document.createElement('li');
+            li.innerHTML = texto.value;
+            lista.insertBefore(li,lista.childNodes[0]);
+            texto.value='';
+            texto.focus();
+        })
+        document.getElementById('btncontar').addEventListener('click',function(){
+        var num = lista.childNodes.length
+        alert(num)
+        
+
+        });
+
+        
+
+    </script>
+    
+</body>
+</html>
