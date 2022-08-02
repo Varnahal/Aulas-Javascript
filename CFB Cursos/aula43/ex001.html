@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(109, 109, 109);
+        }
+        .est1{
+            color: blue;
+        }
+        .est2{
+            color: red;
+        }
+
+    </style>
+</head>
+<body id="body">
+    <div id="div">
+       <p id="p1" class="est1">Varnahal</p>
+       <p id="p2" class="est2">Penio</p>
+       <p id="p3" class="est1">pepino</p>
+       <p id="p4" class="est2">LeoBaska</p>
+       <p id="p5" class="est1">Mihyas</p>
+       <p id="p6" class="est2">Ghay</p>
+    </div>
+    
+    <script>
+        var ele = document.getElementById('p1');
+        var att = ele.getAttribute('class');
+        alert(att);
+        
+
+    </script>
+    
+</body>
+</html>

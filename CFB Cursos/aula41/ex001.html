@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(109, 109, 109);
+        }
+
+    </style>
+</head>
+<body id="body">
+    <h1 id="novo">gayyyyyy</h1>
+    <div id="div">
+       <p>Varnahal</p>
+       <p>Penio</p>
+       <p>pepino</p>
+       <p>LeoBaska</p>
+       <p>Mihyas</p>
+       <p>Ghay</p>
+    </div>
+    
+    <script>
+        var novo = document.getElementById('novo')
+        var novoh1 = document.createElement('h1');
+        var sub=1;
+        var lista = document.getElementById('div');
+        var antigop=lista.childNodes[sub];
+        novoh1.innerHTML = antigop.innerHTML;
+        lista.replaceChild(novo,antigop)
+
+    </script>
+    
+</body>
+</html>
