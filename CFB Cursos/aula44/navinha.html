@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            background-color: rgb(109, 109, 109);
+        }
+        #jogo{
+            border: 1px solid black;
+            width: 500px;
+            height: 300px;
+            margin: 10px;
+        }
+        #jogador{
+            position: absolute;
+            background-color: aqua;
+            height: 20px;
+            width: 20px;
+            top: 290px;
+            left: 240px;
+        }
+        .tiro{
+            position: absolute;
+            width: 5px;
+            height: 5px;
+            background-color: blue;
+        }
+        .inimigo{
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: brown;
+        }
+
+    </style>
+</head>
+<body id="body">
+    <div id="jogo">
+        <div id="jogador"></div>
+       
+    </div>
+    
+    <script>
+        var jogador = document.getElementById('jogador');
+        var veljog = 2;
+        var jogposl = 240 
+        var jogpost = 290
+        var posjogadory =jogpost
+        var posjogadorx = jogposl
+        var dirl = 0;
+        var dirt = 0;
+        var tela = document.getElementById('jogo');
+        var tiro;
+
+        function movejog(){
+            posjogadorx += veljog*dirl
+            if(posjogadorx<=10 || posjogadorx >= 492){
+            posjogadorx +=(veljog*dirl)*(-1);
+            }
+            posjogadory += veljog*dirt
+            if(posjogadory<=10 || posjogadory >= 292){
+            posjogadory +=(veljog*dirt)*(-1);
+            }
+            
+            
+            jogador.style.left = posjogadorx+'px'
+            jogador.style.top = posjogadory+'px'
+        }
+        function downm(){
+            let tecla;
+            tecla = event.keyCode;
+            switch (tecla) {
+                case 37:
+                    dirl = -1
+                    break;
+                case 38:
+                    dirt = -1
+                    break;
+                case 39:
+                    dirl = 1
+                    break;
+                case 40:
+                    dirt = 1
+                    break;
+            
+                default:
+                    break;
+            }
+            //console.log(tecla)
+            
+        }
+        function upm(){
+            let tecla;
+            tecla = event.keyCode;
+            switch (tecla) {
+                case 37:
+                    dirl = 0
+                    break;
+                case 38:
+                    dirt = 0
+                    break;
+                case 39:
+                    dirl = 0
+                    break;
+                case 40:
+                    dirt = 0
+                    break;
+            
+                default:
+                    break;
+            }
+            
+        }
+        function atirar(){
+            let tecla;
+            tecla = event.keyCode;
+            if(tecla == 32){
+                tiro = document.createElement('div');
+                tiro.classList = 'tiro';
+                tiro.id = 'tiro';
+                let tirpox = Number(jogador.offsetLeft)+8
+                let tirpoy = Number(jogador.offsetTop)+8
+                tiro.style.left = tirpox + 'px'
+                tiro.style.top = tirpoy + 'px';
+                tela.appendChild(tiro)
+                //console.log(tirpoy)
+            }
+        }
+        function movetiro(){
+            let vel = 3
+            let tiropos;
+            var vtiro = document.querySelectorAll('div.tiro');
+            for (let i = 0; i < vtiro.length; i++) {
+                if(vtiro[i])
+                {
+                    tiropos = Number(vtiro[i].offsetTop)
+                    tiropos -=vel;
+                    vtiro[i].style.top = tiropos+'px'
+                    //console.log(vtiro[i].offsetTop)
+                    colisãotirobomb(vtiro[i])
+                    if(vtiro[i].offsetTop <= 10){
+                        vtiro[i].remove()
+                    }
+                }
+                
+            }
+            
+        }
+        function moveinimigo(){
+            let vel = 2
+            let pos;
+            var inimigo = document.querySelectorAll('div.inimigo');
+            for (let i = 0; i < inimigo.length; i++) {
+                if(inimigo[i]){
+                    pos = inimigo[i].offsetTop;
+                    pos+=vel;
+                    inimigo[i].style.top = pos+'px';
+                    if(inimigo[i].offsetTop >=300){
+                        inimigo[i].remove()
+                    }
+                }
+                
+            }
+        }
+
+        function colisãotirobomb(tiro){
+            let inimigo = document.querySelectorAll('div.inimigo');
+            //console.log(inimigo.length)
+            for (let i = 0; i < inimigo.length; i++) {
+                console.log(inimigo[i].offsetTop)
+                console.log(tiro.offsetTop)
+                if(inimigo[i].offsetLeft <= tiro.offsetLeft && (inimigo[i].offsetLeft +15)>=tiro.offsetLeft && inimigo[i].offsetTop <= tiro.offsetTop && (inimigo[i].offsetTop + 5) >= tiro.offsetTop){
+                    console.log('colidiu')
+                    inimigo[i].remove()
+                    tiro.remove()
+                }
+                
+            }
+        }
+
+        function game(){
+            movejog()
+            movetiro()
+            moveinimigo()
+            var jogar = requestAnimationFrame(game) 
+        }
+        setInterval(criainimigo,1500)
+
+        function criainimigo(){
+            var cinimigo = document.createElement('div');
+            cinimigo.classList = 'inimigo';
+            cinimigo.style.left = (Math.random()*500)+'px'
+
+            tela.appendChild(cinimigo);
+        }
+        window.addEventListener('load',game)
+        document.addEventListener('keydown',downm)
+        document.addEventListener('keydown',atirar)
+        document.addEventListener('keyup',upm)
+        
+
+    </script>
+    
+</body>
+</html>
