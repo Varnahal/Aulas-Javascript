@@ -39,6 +39,30 @@
             height: 15px;
             background-color: brown;
         }
+        #explosao{
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: orange;
+            animation: linear 1.5s explosao;
+        }
+        @keyframes explosao {
+            0%{
+                width: 30px;
+                height: 30px;
+                background-color: red;
+            }
+            50%{
+                width: 20px;
+                height: 20px;
+                background-color: orange;
+            }
+            100%{
+                width: 0px;
+                height: 0px;
+                background-color: aliceblue;
+            }
+        }
 
     </style>
 </head>
@@ -164,6 +188,7 @@
                     pos+=vel;
                     inimigo[i].style.top = pos+'px';
                     if(inimigo[i].offsetTop >=300){
+                        criarexplosao(inimigo[i])
                         inimigo[i].remove()
                     }
                 }
@@ -178,7 +203,8 @@
                 console.log(inimigo[i].offsetTop)
                 console.log(tiro.offsetTop)
                 if(inimigo[i].offsetLeft <= tiro.offsetLeft && (inimigo[i].offsetLeft +15)>=tiro.offsetLeft && inimigo[i].offsetTop <= tiro.offsetTop && (inimigo[i].offsetTop + 5) >= tiro.offsetTop){
-                    console.log('colidiu')
+                    //console.log('colidiu')
+                    criarexplosao(inimigo[i])
                     inimigo[i].remove()
                     tiro.remove()
                 }
@@ -197,9 +223,21 @@
         function criainimigo(){
             var cinimigo = document.createElement('div');
             cinimigo.classList = 'inimigo';
-            cinimigo.style.left = (Math.random()*500)+'px'
+            cinimigo.style.left = (Math.random()*500+10)+'px';
 
             tela.appendChild(cinimigo);
+        }
+        function criarexplosao(inimigo){
+            let l = inimigo.offsetLeft;
+            let t = inimigo.offsetTop;
+            let div = document.createElement('div');
+            div.id = 'explosao';
+            div.style.left = l+'px'
+            div.style.top = t+'px'
+            tela.appendChild(div);
+            setTimeout(function(){
+                div.remove()
+            },1500)
         }
         window.addEventListener('load',game)
         document.addEventListener('keydown',downm)
