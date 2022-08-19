@@ -198,8 +198,8 @@
             let inimigo = document.querySelectorAll('div.inimigo');
             //console.log(inimigo.length)
             for (let i = 0; i < inimigo.length; i++) {
-                console.log(inimigo[i].offsetTop)
-                console.log(tiro.offsetTop)
+                //console.log(inimigo[i].offsetTop)
+                //console.log(tiro.offsetTop)
                 if(inimigo[i].offsetLeft <= tiro.offsetLeft && (inimigo[i].offsetLeft +15)>=tiro.offsetLeft && inimigo[i].offsetTop <= tiro.offsetTop && (inimigo[i].offsetTop + 5) >= tiro.offsetTop){
                     //console.log('colidiu')
                     criarexplosao(inimigo[i])
@@ -221,7 +221,7 @@
         function criainimigo(){
             var cinimigo = document.createElement('div');
             cinimigo.classList = 'inimigo';
-            cinimigo.style.left = (Math.random()*500+10)+'px';
+            cinimigo.style.left = (Math.random()*485+15)+'px';
 
             tela.appendChild(cinimigo);
         }
