@@ -53,13 +53,11 @@
                 background-color: red;
             }
             50%{
-                width: 20px;
-                height: 20px;
+                transform: scale(50%);
                 background-color: orange;
             }
             100%{
-                width: 0px;
-                height: 0px;
+                transform: scale(0%);
                 background-color: aliceblue;
             }
         }
@@ -74,7 +72,7 @@
     
     <script>
         var jogador = document.getElementById('jogador');
-        var veljog = 2;
+        var veljog = 5;
         var jogposl = 240 
         var jogpost = 290
         var posjogadory =jogpost
@@ -228,8 +226,8 @@
             tela.appendChild(cinimigo);
         }
         function criarexplosao(inimigo){
-            let l = inimigo.offsetLeft;
-            let t = inimigo.offsetTop;
+            let l = Number(inimigo.offsetLeft)-7.5;
+            let t = Number(inimigo.offsetTop)-7.5;
             let div = document.createElement('div');
             div.id = 'explosao';
             div.style.left = l+'px'
