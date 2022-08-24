@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        #painel{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="painel"></div>
+    <div id="dvmsg">Página <span id="simnao"></span>está em foco</div>
+    
+    <script>
+        setInterval(foco,10);
+        function foco(){
+            var res = document.getElementById('simnao');
+            if(document.hasFocus()){
+                res.innerHTML=''
+                document.getElementById('painel').style.display = 'none'
+            }else{
+                res.innerHTML='>>>NÃO<<< '
+                document.getElementById('painel').style.display = 'block'
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
