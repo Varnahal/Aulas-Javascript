@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        .carro{
+            width: 250px;
+            transform: rotateZ(270deg);
+        }
+        .menu_item{
+            height: 100%;
+            cursor: pointer;
+        }
+        #menu{
+            border: solid 3px black;
+            border-radius: 10px;
+            padding: 10px;
+            width: 500px;
+            height: 100px;
+            background-color: white;
+            z-index: 100;
+        }
+        #c1{
+            filter: brightness(5);
+        }
+        #c2{
+            filter:saturate(100);
+        }
+        #c3{
+            filter:sepia(100);
+        }
+        #c4{
+            filter:contrast(100);
+        }
+        #btnc1{
+            filter: brightness(5);
+            -webkit-user-drag: none;
+        }
+        #btnc2{
+            filter:saturate(100);
+            -webkit-user-drag: none;
+        }
+        #btnc3{
+            filter:sepia(100);
+            -webkit-user-drag: none;
+        }
+        #btnc4{
+            filter:contrast(100);
+            -webkit-user-drag: none;
+        }
+    </style>
+</head>
+<body id="body">
+    <div id="menu">
+        <img id="btnc1" data-id="c1" src="nave.jpg" class="menu_item">
+        <img id="btnc2" data-id="c2" src="nave.jpg" class="menu_item">
+        <img id="btnc3" data-id="c3" src="nave.jpg" class="menu_item">
+        <img id="btnc4" data-id="c4" src="nave.jpg" class="menu_item">
+    </div>
+    <img id="c1" src="nave.jpg" class="carro">
+    <img id="c2" src="nave.jpg" class="carro">
+    <img id="c3" src="nave.jpg" class="carro">
+    <img id="c4" src="nave.jpg" class="carro">
+
+    
+    <script>
+        function mostrar(){
+            for(let i = 1;i<5;i++){
+                document.getElementById('c'+i).hidden = true
+            }
+            var obj=event.target.dataset.id;
+            document.getElementById(obj).hidden = false
+            
+        }
+        function inicia(){
+            document.getElementById('btnc1').addEventListener('click',mostrar);
+            document.getElementById('btnc2').addEventListener('click',mostrar);
+            document.getElementById('btnc3').addEventListener('click',mostrar);
+            document.getElementById('btnc4').addEventListener('click',mostrar);
+            
+            for(let i = 1;i<5;i++){
+                document.getElementById('c'+i).hidden = true
+            }
+        }
+        window.addEventListener('load',inicia)
+
+    </script>
+    
+</body>
+</html>
