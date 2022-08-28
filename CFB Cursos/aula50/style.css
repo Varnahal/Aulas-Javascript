@@ -1,0 +1,9 @@
+.dv{
+    aspect-ratio: 16/9;
+    width: 500px; 
+    cursor: pointer;
+    background-image: url('nave.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: rgba(0, 0, 0, 0.174);
+}
