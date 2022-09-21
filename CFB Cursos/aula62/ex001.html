@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ex001</title>
+    <style>
+        
+    </style>
+</head>
+<body id="body">
+    
+    <script>
+        
+        class carro{
+            corCarro = 'sem cor';
+            Modelo = 'sem modelo';
+            marca = 'sem marca';
+            ligado = false;//desligado
+            static alerta = true;
+            constructor() {
+                //console.log('eu sou um carro')
+            }
+            set setCor(c){
+                this.corCarro = c;
+            }
+            get getCor(){
+                return this.corCarro
+            }
+            set setMarca(c){
+                this.marca = c;
+            }
+            get getMarca(){
+                return this.marca  
+            }
+            set setModelo(c){
+                this.Modelo = c;
+            }
+            get getModelo(){
+                return this.Modelo
+            }
+            set setAlerta(t){
+                carro.alerta = t
+            }
+ 
+            ligar(){
+                this.ligado = true
+            }
+            deligar(){
+                this.ligado = false
+            }
+            info(){
+                console.log(`A cor do carro é: `+this.getCor+`\nO Modelo do carro é: `+this.getModelo+`\nA marca do carro é: ${this.marca}`)
+                console.log(this.ligado ? "O carro está: ligado" : "O carro está: desligado")
+                console.log('Alerta: '+ (carro.alerta ?'ligado':'desligado'))
+                console.log('--------------------------------------')
+            }
+        }
+        let c1=new carro();
+        let c2=new carro();
+        c1.setCor = 'Vermelho';
+        c1.ligar()
+        c1.setAlerta = false
+        c1.info()
+        c2.info()
+        
+    </script>                      
+    
+</body>
+</html>
