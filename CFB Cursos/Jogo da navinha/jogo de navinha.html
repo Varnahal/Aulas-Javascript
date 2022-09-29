@@ -40,10 +40,12 @@
             width: 100px;
             height: 100px;
         }
-        div#mouse{
+        #mouse{
             position: absolute;
-            width: 30px;
-            height: 30px;
+            width: 5px;
+            height: 5px;
+            background-color: red;
+            border-radius: 200px;
         }
         #pedra{
             position: absolute;
@@ -55,6 +57,8 @@
             color: white;
             background-color: rgb(116, 116, 116);
             cursor: pointer;
+            -webkit-user-drag: none;
+            user-select: none;
         }
         #cont{
             position: absolute;
@@ -171,8 +175,8 @@
         }
         //acha a posição em que o mouse esta e traça um triangulo do mouse para o "chão" para a nave e descobre o angulo que a nave tem que virar em radianos
         setInterval(() => {
-            var offtmouse = 300 - Number(mouse.offsetTop) - 15
-            var offlmouse = Number(mouse.offsetLeft) - 300 + 15
+            var offtmouse = 300 - Number(mouse.offsetTop) - 2.5
+            var offlmouse = Number(mouse.offsetLeft) - 300 + 2.5
             var offlnave = 300;
             var hip = Math.hypot(offtmouse,offlmouse);
             var A = offlmouse / hip
@@ -182,8 +186,8 @@
         }, 10);
         // encontra a posição do mouse
         function move(e){
-            var pgx = event.pageX - 65;
-            var pgy = event.pageY - 115;
+            var pgx = event.pageX - 52.5;
+            var pgy = event.pageY - 102.5;
             mouse.style.left = pgx+'px';
             mouse.style.top = pgy+'px';
         }
