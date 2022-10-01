@@ -1,0 +1,31 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    width: 100vw;
+    height:70px;
+    background-color: rgb(66, 66, 66);
+
+}
+#list{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 17px;
+    
+}
+#items{
+    
+    list-style: none;
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-size: larger;
+}
+a:hover{
+    color: rgb(255, 0, 0);
+}
